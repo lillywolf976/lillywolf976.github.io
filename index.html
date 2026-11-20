@@ -48,7 +48,12 @@
     .nav-links a:hover { color: var(--accent); text-decoration: none; }
 
     /* Hero */
-    .hero { padding: 96px 0 80px; }
+    .hero { padding: 88px 0 80px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: center; }
+    .headshot {
+      width: 300px; height: 360px; object-fit: cover; border-radius: 16px;
+      box-shadow: 0 18px 40px rgba(20,33,61,0.14); background: var(--bg-alt);
+    }
     .eyebrow {
       display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--accent); margin-bottom: 18px;
@@ -126,7 +131,9 @@
 
     @media (max-width: 760px) {
       .nav-links { display: none; }
-      .hero { padding: 64px 0 56px; }
+      .hero { padding: 48px 0 56px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .headshot { width: 160px; height: 160px; border-radius: 50%; order: -1; }
       section { padding: 60px 0; }
       .about-grid, .projects, .skills { grid-template-columns: 1fr; }
       .job { grid-template-columns: 1fr; gap: 6px; }
@@ -148,14 +155,19 @@
   </nav>
 
   <header class="hero" id="top">
-    <div class="wrap">
+    <div class="wrap hero-grid">
+      <div>
       <span class="eyebrow">Information Systems · The Ohio State University</span>
       <h1>Hi, I'm Lilly. I work where security, data, and systems meet.</h1>
       <p>Information Systems graduate with cybersecurity internships at Abbott and Snap-on, and a habit of building data models for fun &mdash; especially when sports are involved.</p>
       <div class="btns">
         <a class="btn primary" href="#projects">View my projects</a>
+        <!-- RESUME: if your resume file has a different name, change resume.pdf below to match it exactly -->
         <a class="btn" href="Lilly%20Wolf%20Resume%2011.26.pdf" target="_blank">Download resume</a>
       </div>
+      </div>
+      <!-- PHOTO: upload your photo to the repo as photo.jpg (or change the file name below to match yours) -->
+      <img class="headshot" src="photo.jpg" alt="Photo of Lilly Wolf">
     </div>
   </header>
 
@@ -194,8 +206,9 @@
             <span class="tag">R</span><span class="tag">XGBoost</span><span class="tag">Feature engineering</span>
           </div>
           <div class="card-links">
-            <!-- Replace # with links to your write-up PDF and code repo -->
-            <a href="#">Read the write-up →</a>
+            <!-- WRITE-UP: upload your analysis to the repo as nba-shot-model.pdf (or change the file name below to match yours) -->
+            <a href="nba-shot-model.pdf" target="_blank">Read the write-up →</a>
+            <!-- CODE: once your R code is in its own repo, replace # with that repo's link. Until then, delete this line. -->
             <a href="#">View code →</a>
           </div>
         </article>
