@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lilly Wolf | Information Systems</title>
+  <meta name="description" content="Lilly Wolf — Information Systems graduate from The Ohio State University. Cybersecurity, data analytics, and sports analytics projects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #14213d;
+      --body: #3d4659;
+      --muted: #6b7385;
+      --accent: #b3122e;
+      --accent-soft: #fbeaed;
+      --bg: #ffffff;
+      --bg-alt: #f6f7f9;
+      --line: #e3e6eb;
+      --max: 980px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--body);
+      background: var(--bg);
+      line-height: 1.6;
+      font-size: 17px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-weight: 700; color: var(--ink); font-size: 18px; letter-spacing: -0.01em; }
+    .logo:hover { text-decoration: none; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--body); font-size: 15px; font-weight: 500; }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+    /* Hero */
+    .hero { padding: 96px 0 80px; }
+    .eyebrow {
+      display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 18px;
+    }
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(40px, 6vw, 60px); line-height: 1.08; color: var(--ink);
+      letter-spacing: -0.02em; margin-bottom: 22px; font-weight: 600;
+    }
+    .hero p { font-size: 20px; max-width: 640px; color: var(--body); margin-bottom: 34px; }
+    .btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 12px 22px; border-radius: 8px; font-weight: 600; font-size: 15px;
+      border: 1.5px solid var(--ink); color: var(--ink); transition: all .15s ease;
+    }
+    .btn:hover { text-decoration: none; background: var(--ink); color: #fff; }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn.primary:hover { background: #8f0e25; border-color: #8f0e25; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+    section.alt { background: var(--bg-alt); }
+    h2 {
+      font-family: "Fraunces", Georgia, serif; font-weight: 600;
+      font-size: 34px; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 36px;
+    }
+    h3 { color: var(--ink); font-size: 19px; line-height: 1.35; margin-bottom: 4px; }
+    .meta { color: var(--muted); font-size: 15px; margin-bottom: 12px; }
+    ul.points { padding-left: 20px; }
+    ul.points li { margin-bottom: 6px; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px; align-items: start; }
+    .about-grid p + p { margin-top: 16px; }
+    .facts { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+    .facts div { padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .facts div:last-child { border-bottom: none; }
+    .facts span { display: block; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+    .facts strong { color: var(--ink); font-weight: 600; }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .card {
+      background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 28px;
+      display: flex; flex-direction: column; transition: box-shadow .2s ease, transform .2s ease;
+    }
+    .card:hover { box-shadow: 0 10px 30px rgba(20,33,61,0.08); transform: translateY(-2px); }
+    .card .label { font-size: 13px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
+    .card p { margin: 10px 0 14px; }
+    .stat-row { display: flex; gap: 24px; margin: 6px 0 18px; }
+    .stat strong { display: block; font-size: 24px; color: var(--ink); line-height: 1.2; }
+    .stat span { font-size: 13px; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 8px; }
+    .tag { font-size: 13px; background: var(--accent-soft); color: var(--accent); padding: 4px 10px; border-radius: 999px; font-weight: 500; }
+    .card-links { margin-top: 18px; display: flex; gap: 18px; font-weight: 600; font-size: 15px; }
+
+    /* Experience */
+    .job { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding: 28px 0; border-top: 1px solid var(--line); }
+    .job:first-of-type { border-top: none; padding-top: 0; }
+    .job .when { color: var(--muted); font-size: 15px; font-weight: 500; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .skill-group h3 { font-size: 16px; margin-bottom: 12px; }
+    .skill-group .tags { padding-top: 0; }
+    .skill-group .tag { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact h2 { margin-bottom: 16px; }
+    .contact p { max-width: 560px; margin: 0 auto 30px; }
+    .contact .btns { justify-content: center; }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0; text-align: center; font-size: 14px; color: var(--muted); }
+
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      .hero { padding: 64px 0 56px; }
+      section { padding: 60px 0; }
+      .about-grid, .projects, .skills { grid-template-columns: 1fr; }
+      .job { grid-template-columns: 1fr; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a class="logo" href="#top">Lilly Wolf</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <span class="eyebrow">Information Systems · The Ohio State University</span>
+      <h1>Hi, I'm Lilly. I work where security, data, and systems meet.</h1>
+      <p>Information Systems graduate with cybersecurity internships at Abbott and Snap-on, and a habit of building data models for fun &mdash; especially when sports are involved.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">View my projects</a>
+        <a class="btn" href="resume.pdf" target="_blank">Download resume</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="alt" id="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <div class="about-grid">
+        <div>
+          <p>I'm finishing a B.S. in Business Administration with a major in Information Systems at Ohio State (December 2026). My path into IT started on the sidelines: as a student assistant with Ohio State Athletics IT, I set up and ran instant replay systems for live games, and I've been hooked on technology ever since.</p>
+          <p>Since then I've worked on the security side of IT, auditing firewall rules and running phishing simulations at Snap-on, and building governance documentation and dashboards in ServiceNow and Power BI at Abbott. Outside of work, I build analytics projects, from predictive shot models to strength-of-schedule tools.</p>
+        </div>
+        <div class="facts">
+          <div><span>Education</span><strong>B.S.B.A., Information Systems</strong><br>The Ohio State University, Dec 2026</div>
+          <div><span>Focus areas</span><strong>Cybersecurity, data analytics, IT systems</strong></div>
+          <div><span>Currently</span><strong>Looking for full-time IT roles</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="projects">
+
+        <article class="card">
+          <div class="label">Machine learning · Sports analytics</div>
+          <h3>NBA Shot Prediction Model</h3>
+          <p>Built a model that predicts whether an NBA shot goes in, then broke it down by shot type to find what really drives makes. Distance matters most for jumpers and layups, but shooter speed leads for floaters.</p>
+          <div class="stat-row">
+            <div class="stat"><strong>425K</strong><span>shots analyzed</span></div>
+            <div class="stat"><strong>8</strong><span>engineered features</span></div>
+            <div class="stat"><strong>5</strong><span>shot types modeled</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">R</span><span class="tag">XGBoost</span><span class="tag">Feature engineering</span>
+          </div>
+          <div class="card-links">
+            <!-- Replace # with links to your write-up PDF and code repo -->
+            <a href="#">Read the write-up →</a>
+            <a href="#">View code →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="label">Requirements · Data privacy</div>
+          <h3>AI Data Anonymization Tool</h3>
+          <p>Co-authored a full software requirements specification for an AI-assisted tool that removes students' personal information from discussion data before it's shared with researchers, with a human reviewer approving every change.</p>
+          <div class="stat-row">
+            <div class="stat"><strong>95%+</strong><span>PII accuracy target</span></div>
+            <div class="stat"><strong>30%</strong><span>faster review goal</span></div>
+            <div class="stat"><strong>5</strong><span>person team</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">Requirements analysis</span><span class="tag">User stories</span><span class="tag">Use cases</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="when">Summer 2026</div>
+        <div>
+          <h3>Enterprise Cybersecurity IT Intern</h3>
+          <div class="meta">Abbott · Lake Bluff, Illinois</div>
+          <ul class="points">
+            <li>Documented cybersecurity governance workflows in ServiceNow for audit readiness and cross-team process clarity.</li>
+            <li>Built dashboards in Platform Analytics, Microsoft Fabric, and Power BI to measure SLA timing, incident trends, and workflow efficiency.</li>
+            <li>Tested in ServiceNow QA/Stage environments and completed ATF and admin module training.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">Summer 2025</div>
+        <div>
+          <h3>Information Security IT Intern</h3>
+          <div class="meta">Snap-on Incorporated · Kenosha, Wisconsin</div>
+          <ul class="points">
+            <li>Audited firewall access control lists (ACLs) and supported deployment of Forescout NAC to strengthen network security.</li>
+            <li>Built dynamic Excel dashboards that improved device inventory tracking and reporting.</li>
+            <li>Designed phishing simulations in Proofpoint and updated SOP documents to improve security awareness.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when">Oct 2023 – May 2024</div>
+        <div>
+          <h3>Instant Replay Student Assistant</h3>
+          <div class="meta">Ohio State University Athletics IT · Columbus, Ohio</div>
+          <ul class="points">
+            <li>Set up instant replay systems, configured for each sport, under time pressure for live events.</li>
+            <li>Coordinated with officials, production staff, and other departments to keep systems running during games.</li>
+            <li>Troubleshot and escalated software issues with the vendor's support team.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Data &amp; Programming</h3>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">R</span><span class="tag">Java</span><span class="tag">XGBoost</span><span class="tag">Excel (Advanced)</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Analytics &amp; Platforms</h3>
+          <div class="tags">
+            <span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Cognos</span><span class="tag">ServiceNow</span><span class="tag">Microsoft Fabric</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Security</h3>
+          <div class="tags">
+            <span class="tag">Incident Response</span><span class="tag">Forescout</span><span class="tag">Proofpoint</span><span class="tag">Tanium</span><span class="tag">Acunetix</span><span class="tag">HackerOne</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt contact" id="contact">
+    <div class="wrap">
+      <h2>Let's talk</h2>
+      <p>I'm looking for full-time IT roles starting in early 2027. If you have an opening or just want to connect, I'd love to hear from you.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:wolf.976@osu.edu">Email me</a>
+        <!-- Replace # with your LinkedIn profile URL -->
+        <a class="btn" href="#" target="_blank">LinkedIn</a>
+        <!-- Replace # with your GitHub profile URL -->
+        <a class="btn" href="#" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">© 2026 Lilly Wolf</div>
+  </footer>
+
+</body>
+</html>
